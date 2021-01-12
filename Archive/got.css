@@ -1,0 +1,12 @@
+img {
+    width: 225px;
+    padding: 20px;
+}
+
+div{
+    border-color: black;
+    width: 1150px;
+    height: 500px;
+    background-color: lightblue;
+    align-items: center;
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="got.css">
+</head>
+<body>
+    <img id="baratheon" src="/Users/vineetdaniels/Desktop/codingdojo/Ajax/game of thrones/baratheon.png" alt="baratheon">
+    <img id="lannister" src="/Users/vineetdaniels/Desktop/codingdojo/Ajax/game of thrones/lannister.jpg" alt="lannister">
+    <img id="stark" src="/Users/vineetdaniels/Desktop/codingdojo/Ajax/game of thrones/stark.jpg" alt="stark">
+    <img id="targaryen" src="/Users/vineetdaniels/Desktop/codingdojo/Ajax/game of thrones/targaryen.jpg" alt="targaryen">
+
+    <div>
+        <h1 id="name"></h1>
+        <h2 id="words"></h2>
+        <h2 id="titles"></h2>
+    </div>
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        $("#baratheon").click(function(){
+            $.ajax({
+                url: "https://anapioficeandfire.com/api/houses/7",
+                success: function(res){
+                    console.log(res)
+                    $("#name").text("Name is: " + res.name)
+                    $("#words").text("Words: " + res.words)
+                    $("#titles").html("")
+                    $("#titles").append("Titles: ")
+
+                    jQuery.each(res.titles, function(i, val){
+                        console.log(val)
+                        $("#titles").append("<li>" + val)
+                    })
+                }
+            })
+        })
+
+
+        $("#lannister").click(function(){
+            $.ajax({
+                url: "https://anapioficeandfire.com/api/houses/8",
+                success: function(res){
+                    $("#name").text("Name is: " + res.name)
+                    $("#words").text(" Words are: " + res.words)
+                    $("#titles").html("")
+                    $("#titles").append("Titles are: ")
+
+                    jQuery.each(res.titles, function(i, val){
+                        $("#titles").append("<li>" + val)
+                    })
+                }
+
+            })
+        })
+
+        $("#stark").click(function(){
+            $.ajax({
+                url: "https://anapioficeandfire.com/api/houses/10",
+                success: function(res){
+                    $("#name").text("Name is:" + res.name)
+                    $("#words").text("Words are:" + res.words)
+                    $("#titles").html("")
+                    $("#titles").append("titles are:")
+
+                    jQuery.each(res.titles, function(i,val){
+                        $("#titles").append("<li>" + val)
+                    })
+                }
+            })
+        })
+
+
+        $("#targaryen").click(function(){
+            $.ajax({
+                url: "https://anapioficeandfire.com/api/houses/1",
+                success: function(res){
+                    $("#name").text("name is: " + res.name)
+                    $("#words").text("words are: " + "No words")
+                    $("#titles").html("")
+                    $("#titles").append("No titles")
+
+                }
+            })
+        })
+
+
+
+
+
+
+
+            
+
+    </script>
+
+
+</body>
+</html>
